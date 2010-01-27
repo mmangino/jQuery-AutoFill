@@ -1,0 +1,9 @@
+Call the plugin like so:
+
+	$(document).ready(function(){
+		$('#txtSearch').autofill({
+			value: 'Search for Keyword(s)',
+			defaultTextColor: '#666',
+			activeTextColor: '#333'
+		});
+	});
