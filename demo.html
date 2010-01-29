@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+			<title>jQuery.AutoFill Demo</title>
+		</head>
+		<body>
+			<p>
+				<input type="text" id="name_field" />
+			</p>
+			
+			<p>
+				<input type="text" id="txtSearch" />
+			</p>
+			
+			<p>
+				<input type="password" id="password" />
+			</p>
+			
+			<script src="http://www.google.com/jsapi"></script>
+			<script>
+			  google.load('jquery','1.3.2');
+			</script>
+			<script src="jquery.autofill.js"></script>
+			<script>
+				$(document).ready(function(){
+					$('#name_field').autofill();
+					$('#txtSearch').autofill({
+						value: 'Search for Keyword(s)'
+					});
+					$('#password').autofill({
+						value: 'Password',
+						defaultTextColor: '#666',
+						activeTextColor: '#333'
+					});
+				});
+			</script>
+		</body>
+	</html>
