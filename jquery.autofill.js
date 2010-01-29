@@ -17,11 +17,11 @@
 			return this.each(function(){
 				var obj=$(this);
 				var pfield = (obj.attr('type')=='password');
-				
+				var p_obj = false;
 				if(pfield){
 					obj.hide();
 					obj.after('<input type="text" id="'+this.id+'_autofill" class="'+$(this).attr('class')+'" />');
-					var p_obj = obj;
+					p_obj = obj;
 					obj = obj.next();
 				} 
 				
@@ -40,19 +40,21 @@
 						}
 					})
 					.blur(function(){
-						if(obj.val()=="" && !p_field){
+						if(obj.val()==""){
 							obj.css({color:options.defaultTextColor})
 							.val(options.value);
 						}
 					});
-					p_obj.blur(function(){
-						if(p_obj.val()==""){
-							p_obj.hide();
-							obj.show()
-							.css({color:options.defaultTextColor})
-							.val(options.value);
-						}
-					});
+					if(p_obj && p_obj.length > 0){
+						p_obj.blur(function(){
+							if(p_obj.val()==""){
+								p_obj.hide();
+								obj.show()
+								.css({color:options.defaultTextColor})
+								.val(options.value);
+							}
+						});
+					}
 				});
 			};
 		})(jQuery);
