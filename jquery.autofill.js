@@ -1,5 +1,10 @@
-// Auto-Fill Plugin
-// Written by Joe Sak http://www.joesak.com/2008/11/19/a-jquery-function-to-auto-fill-input-fields-and-clear-them-on-click/
+/*
+* Auto-Fill Plugin
+* Written by Joe Sak 
+* Website: http://www.joesak.com/
+* Article: http://www.joesak.com/2008/11/19/a-jquery-function-to-auto-fill-input-fields-and-clear-them-on-click/
+* GitHub: http://github.com/joemsak/jQuery-AutoFill
+*/
 (function($){
 	$.fn.autofill=function(options){
 		var defaults={
@@ -20,41 +25,34 @@
 					obj = obj.next();
 				} 
 				
-				obj.css({color:options.defaultTextColor})
+				 obj.css({color:options.defaultTextColor})
 					.val(options.value);
-					
-				if(!pfield) {
-					 obj.focus(function(){
-							if(obj.val()==options.value){
-								obj.val("")
-								.css({color:options.activeTextColor});
-							}
-						})
-						.blur(function(){
-							if(obj.val()==""){
-								obj.css({color:options.defaultTextColor})
-								.val(options.value);
-							}
-						});
-					} else {
-						obj.focus(function(){
-							if(obj.val()==options.value){
+
+				 obj.focus(function(){
+						if(obj.val()==options.value){
+							if(pfield) {
 								obj.hide();
 								p_obj.show()
 								.focus()
-								.val("")
-								.css({color:options.activeTextColor});
 							}
-						});
-						p_obj.blur(function(){
-							if(p_obj.val()==""){
-								p_obj.hide();
-								obj.show()
-								.css({color:options.defaultTextColor})
-								.val(options.value);
-							}
-						});
-					}
+							obj.val("")
+							.css({color:options.activeTextColor});
+						}
+					})
+					.blur(function(){
+						if(obj.val()=="" && !p_field){
+							obj.css({color:options.defaultTextColor})
+							.val(options.value);
+						}
+					});
+					p_obj.blur(function(){
+						if(p_obj.val()==""){
+							p_obj.hide();
+							obj.show()
+							.css({color:options.defaultTextColor})
+							.val(options.value);
+						}
+					});
 				});
 			};
 		})(jQuery);
