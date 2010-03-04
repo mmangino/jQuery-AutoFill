@@ -9,6 +9,7 @@
 	$.fn.autofill=function(options){
 		var defaults={
 			value:'First Name',
+			toValue:'',
 			defaultTextColor:"#666",
 			activeTextColor:"#333"};
 			
@@ -35,12 +36,12 @@
 								p_obj.show()
 								.focus()
 							}
-							obj.val("")
+							obj.val(options.toValue)
 							.css({color:options.activeTextColor});
 						}
 					})
 					.blur(function(){
-						if(obj.val()==""){
+						if(obj.val()==options.toValue || obj.val() == ''){
 							obj.css({color:options.defaultTextColor})
 							.val(options.value);
 						}

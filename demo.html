@@ -6,15 +6,23 @@
 		</head>
 		<body>
 			<p>
-				<input type="text" id="name_field" />
+			  <label>Default Behavior:</label><br />
+				<input type="text" id="txtName" />
 			</p>
 			
 			<p>
+			  <label>Search:</label><br />
 				<input type="text" id="txtSearch" />
 			</p>
 			
 			<p>
-				<input type="password" id="password" />
+			  <label>Password:</label><br />
+				<input type="password" id="pwdPassword" />
+			</p>
+			
+			<p>
+			  <label>Web site:</label><br />
+			  <input type="text" id="txtWebsite" />
 			</p>
 			
 			<script src="http://www.google.com/jsapi"></script>
@@ -24,14 +32,18 @@
 			<script src="jquery.autofill.js"></script>
 			<script>
 				$(document).ready(function(){
-					$('#name_field').autofill();
+					$('#txtName').autofill();
 					$('#txtSearch').autofill({
 						value: 'Search for Keyword(s)'
 					});
-					$('#password').autofill({
+					$('#pwdPassword').autofill({
 						value: 'Password',
 						defaultTextColor: '#666',
 						activeTextColor: '#333'
+					});
+					$('#txtWebsite').autofill({
+						value: 'Website',
+						toValue: 'http://'
 					});
 				});
 			</script>

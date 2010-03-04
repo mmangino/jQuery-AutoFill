@@ -7,3 +7,11 @@ Call the plugin like so:
 			activeTextColor: '#333'
 		});
 	});
+	
+/*------- New Option (Mar 4 2010)------*/
+Now you can add your custom "toValue" to your inputs. For example, if you have a website field, you may want to pre-populate it with http://
+
+$('#txtWebsite').autofill({
+  value: 'Website',
+  toValue: 'http://'
+});
