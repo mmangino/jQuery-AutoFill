@@ -9,7 +9,7 @@
 	$.fn.autofill=function(options){
 		var defaults={
 			value:'First Name',
-			toValue:'',
+			prePopulate:'',
 			defaultTextColor:"#666",
 			activeTextColor:"#333"};
 			
@@ -36,12 +36,12 @@
 								p_obj.show()
 								.focus()
 							}
-							obj.val(options.toValue)
+							obj.val(options.prePopulate)
 							.css({color:options.activeTextColor});
 						}
 					})
 					.blur(function(){
-						if(obj.val()==options.toValue || obj.val() == ''){
+						if(obj.val()==options.prePopulate || obj.val() == ''){
 							obj.css({color:options.defaultTextColor})
 							.val(options.value);
 						}
