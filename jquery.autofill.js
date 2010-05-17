@@ -25,9 +25,10 @@
 					p_obj = obj;
 					obj = obj.next();
 				} 
-				
-				 obj.css({color:options.defaultTextColor})
-					.val(options.value);
+				 if(document.activeElement != obj[0]) {
+					 obj.css({color:options.defaultTextColor})
+						.val(options.value);					
+				 }
 				 obj.each(function() {
 					 $(this.form).submit(function() {
 					   if (obj.val() == options.value) {
