@@ -28,7 +28,13 @@
 				
 				 obj.css({color:options.defaultTextColor})
 					.val(options.value);
-
+				 obj.each(function() {
+					 $(this.form).submit(function() {
+					   if (obj.val() == options.value) {
+						   obj.val(options.prePopulate);
+						 }
+				   });
+				 });
 				 obj.focus(function(){
 						if(obj.val()==options.value){
 							if(pfield) {
