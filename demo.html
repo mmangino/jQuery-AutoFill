@@ -23,7 +23,11 @@
 			<p>
 			  <label>Web site:</label><br />
 			  <input type="text" id="txtWebsite" />
-			</p>
+      </p>
+      <p>
+        <label>Text Area: </label><br />
+        <textarea id="test-textarea"></textarea>
+      </p>
 			
 			<script src="http://www.google.com/jsapi"></script>
 			<script>
@@ -44,7 +48,10 @@
 					$('#txtWebsite').autofill({
 						value: 'Website',
 						prePopulate: 'http://'
-					});
+          });
+          $('#test-textarea').autofill({
+            value: "test\nwith\n\newlines"
+          });
 				});
 			</script>
 		</body>
